@@ -2,17 +2,14 @@
 #include <iostream>
 using namespace std;
 
-// функция для создания пустого стека
-void createStack(Stack& s) {
+void newStack(Stack& s) {
 	s.top = nullptr;
 }
 
-// функция для проверки на пустоту стека
 bool isEmpty(Stack& s) {
 	return s.top == nullptr;
 }
 
-// функция добавления элемента в вершину стека
 void push(Stack& s, int data) {
 	Node* newNode = new Node; //выделение памяти под новый узел стека
 	newNode->data = data; // запись данных в узел
@@ -20,10 +17,10 @@ void push(Stack& s, int data) {
 	s.top = newNode; // обновление указателя вершины на новый узел
 }
 
-// функция удаления элемента из вершины стека
 void pop(Stack& s) {
 	if (isEmpty(s)) {
 		cout << "Стек пуст" << endl;
+
 	}
 	else {
 		Node* temp = s.top; // создание временного указателя 
@@ -32,7 +29,6 @@ void pop(Stack& s) {
 	}
 }
 
-// функция для вывода текущего состояния стека
 void display(Stack& s) {
 	if (isEmpty(s)) {
 		cout << "Стек пуст" << endl;
@@ -47,7 +43,6 @@ void display(Stack& s) {
 	}
 }
 
-// функция перемещения в дополнительный стек
 void move(Stack& s, Stack& extraStack) {
 	Node* cur;
 	if (not isEmpty(s)) {
@@ -64,7 +59,6 @@ void move(Stack& s, Stack& extraStack) {
 
 }
 
-// функция перемещения из дополнительного стека
 void take(Stack& extraStack, Stack& s) {
 	Node* cur;
 	if (not isEmpty(extraStack)) {
